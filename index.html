@@ -27,7 +27,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Shippori Mincho', 'Noto Sans TC', serif; /* 優先使用明朝體展現人文感 */
+  font-family: 'Shippori Mincho', 'Noto Sans TC', serif; 
   background-color: var(--paper);
   color: var(--ink);
   min-height: 100vh;
@@ -35,7 +35,7 @@ body {
   line-height: 1.7;
 }
 
-/* 仿舊和紙紋理 (混合模式讓色彩更有印進紙張的感覺) */
+/* 仿舊和紙紋理 */
 body::before {
   content: ''; position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
@@ -52,11 +52,9 @@ body::before {
   border-bottom: var(--border-width) solid var(--ink);
 }
 
-/* 浮世繪純代碼插畫背景 */
 .uki-bg {
   position: absolute; inset: 0; z-index: 0;
   pointer-events: none; opacity: 0.8;
-  /* 傳統青海波紋理底圖 */
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20c-5.523 0-10-4.477-10-10S14.477 0 20 0s10 4.477 10 10-4.477 10-10 10zm0 20c-5.523 0-10-4.477-10-10s4.477-10 10-10 10 4.477 10 10-4.477 10-10 10zM0 20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S0 25.523 0 20zm40 0c0-5.523-4.477-10-10-10s-10 4.477-10 10 4.477 10 10 10 10-4.477 10-10z' fill='%231c1614' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 .uki-illustration {
@@ -91,7 +89,6 @@ body::before {
   background: var(--paper);
   clip-path: polygon(50% 0, 0 100%, 20% 80%, 40% 100%, 60% 80%, 80% 100%, 100% 100%);
 }
-/* 用墨線勾勒山形 */
 .uki-fuji-line {
   position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
   width: 800px; height: 300px;
@@ -160,12 +157,11 @@ body::before {
   display: flex; align-items: flex-end; gap: 24px; margin-bottom: 30px;
   padding-bottom: 15px; border-bottom: 3px double var(--ink); flex-wrap: wrap;
 }
-/* 印章設計 */
 .day-badge {
   flex-shrink: 0; width: 64px; height: 64px; 
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   border: 3px solid var(--red); color: var(--red);
-  border-radius: 12px 4px 10px 6px; /* 模擬手工刻印的不規則感 */
+  border-radius: 12px 4px 10px 6px; 
   transform: rotate(-3deg);
   background: transparent;
   position: relative;
@@ -190,13 +186,11 @@ body::before {
 .timeline-list { position: relative; padding-left: 10px; }
 .timeline-item { position: relative; padding-left: 45px; margin-bottom: 30px; opacity: 0; transform: translateX(-20px); transition: opacity 0.6s, transform 0.6s; }
 .timeline-item.in-view { opacity: 1; transform: translateX(0); }
-/* 粗獷的垂直線 */
 .timeline-item::before {
   content: ''; position: absolute; left: 16px; top: 35px; bottom: -35px; width: 3px;
   background: var(--ink); opacity: 0.3;
 }
 .timeline-item:last-child::before { display: none; }
-/* 時間點 Icon */
 .timeline-icon {
   position: absolute; left: 0; top: 0; width: 36px; height: 36px; 
   background: var(--paper); border: var(--border-width) solid var(--ink);
@@ -230,7 +224,7 @@ body::before {
 .card.in-view { opacity: 1; transform: translateY(0); }
 .card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); z-index: 10; }
 
-/* 裝飾性和紙膠帶 (Ukiyo-e 粗色塊) */
+/* 裝飾性和紙膠帶 */
 .card::before {
   content: ''; position: absolute; top: -12px; left: 50%;
   transform: translateX(-50%) rotate(var(--tape-angle,-2deg)); width: 70px; height: 24px;
@@ -251,14 +245,14 @@ body::before {
 .card-score .s { color: var(--red); font-size: 0.7rem; }
 .card-desc { font-family: 'Noto Sans TC', sans-serif; font-size: 0.9rem; line-height: 1.7; color: var(--ink-light); margin-bottom: 20px; flex: 1; font-weight: 500;}
 
-/* 推薦必點區塊 (日式小標籤) */
+/* 推薦必點區塊 */
 .card-recommend {
   background: rgba(28,22,20,0.03); border: 1px solid var(--ink); border-left: 4px solid var(--rc-color);
   padding: 12px 16px; margin-bottom: 20px; font-size: 0.85rem; line-height: 1.6; color: var(--ink); font-weight: 700;
 }
 .rc-title { font-size: 0.75rem; font-weight: 800; color: var(--rc-color); margin-bottom: 6px; letter-spacing: 0.05em; }
 
-/* 地圖按鈕 (粗線框按鈕) */
+/* 地圖按鈕 */
 .btn-map {
   display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px;
   background: var(--paper); color: var(--ink); border: var(--border-width) solid var(--ink);
@@ -267,7 +261,7 @@ body::before {
 }
 .btn-map:hover { background: var(--ink); color: var(--paper); box-shadow: 0 0 0; transform: translate(3px, 3px); }
 
-/* ── 標題共用樣式 (帶有傳統括號感) ── */
+/* 標題共用樣式 */
 .section-title {
   font-weight: 800; margin-bottom: 24px; font-size: 1.25rem; color: var(--ink); display: flex; align-items: center; gap: 10px;
 }
@@ -316,7 +310,6 @@ footer strong { display: block; font-size: 1.2rem; font-weight: 800; color: var(
 <body>
 
 <section class="hero">
-  <!-- 浮世繪風格純代碼背景 -->
   <div class="uki-bg"></div>
   <div class="uki-illustration">
     <div class="uki-sun"></div>
@@ -360,16 +353,15 @@ footer strong { display: block; font-size: 1.2rem; font-weight: 800; color: var(
 </button>
 
 <script>
-/* ═══ DATA (替換成浮世繪和色調色盤) ═══ */
+/* ═══ DATA ═══ */
 const DAY_COLORS = { 
-  day1: 'var(--red)',     // 朱殷
-  day2: 'var(--indigo)',  // 瑠璃
-  day3: 'var(--pine)',    // 松葉
-  day4: 'var(--plum)',    // 梅紫
-  day5: 'var(--mustard)'  // 芥子
+  day1: 'var(--red)',     
+  day2: 'var(--indigo)',  
+  day3: 'var(--pine)',    
+  day4: 'var(--plum)',    
+  day5: 'var(--mustard)'  
 };
 
-// 產生和風紙膠帶色彩的輔助函式
 const TAPE_COLORS = ['#c8392b', '#1f3160', '#2e5c40', '#d5a038', '#7b3b4a'];
 function getRandomTapeColor(index) {
   return TAPE_COLORS[index % TAPE_COLORS.length];
@@ -377,7 +369,7 @@ function getRandomTapeColor(index) {
 
 const DAYS = [
   {
-    id:'day1', num:'壱', date:'4月5日', // 改用漢字數字增添和風感
+    id:'day1', num:'壱', date:'4月5日',
     title:'抵達福岡 · 入住店屋町', 
     subtitle:'開啟旅程的第一天，安置行李後探索中洲與吳服町周邊的老街風情、獨立小店與夜生活。',
     itinerary: [
@@ -394,7 +386,19 @@ const DAYS = [
       {name:'やきとり 六三四',area:'春吉',rating:4.3,type:'炭火串燒',desc:'在地人極推的超人氣燒鳥店，氣氛熱鬧，雞肉串烤功一流。',recommend:'🍢 必點：特選烤雞腿肉、豬五花串',angle:'-3deg'},
       {name:'博多祇園鉄なべ',area:'祇園',rating:4.2,type:'鐵鍋煎餃',desc:'老字號排隊店，煎餃連著高溫鐵鍋上桌，外皮極度酥脆。',recommend:'🥟 必點：鐵鍋煎餃 (建議一人至少點一份)',angle:'1deg'},
       {name:'牛腸鍋 芳々亭',area:'博多區',rating:4.2,type:'牛腸鍋',desc:'距離店屋町不遠的高評價牛腸鍋，湯頭選擇多元。',recommend:'🍲 必點：濃厚味噌牛腸鍋、明太子玉子燒',angle:'-2deg'},
-      {name:'燒肉 慶州 春吉店',area:'春吉',rating:4.2,type:'黑毛和牛燒肉',desc:'離中洲不遠的高品質燒肉店，肉質極佳，適合晚宴。',recommend:'🥩 必點：特選黑毛和牛拼盤、厚切牛舌',angle:'2deg'}
+      {name:'燒肉 慶州 春吉店',area:'春吉',rating:4.2,type:'黑毛和牛燒肉',desc:'離中洲不遠的高品質燒肉店，肉質極佳，適合晚宴。',recommend:'🥩 必點：特選黑毛和牛拼盤、厚切牛舌',angle:'2deg'},
+      {name:'河太郎 中洲本店',area:'中洲',rating:4.3,type:'海鮮活造',desc:'福岡發祥的「呼子烏賊活造」名店，透明的鮮甜烏賊是絕景。',recommend:'🦑 必點：呼子烏賊活造套餐',angle:'-1deg'},
+      {name:'一蘭 本社總本店',area:'中洲',rating:4.1,type:'豚骨拉麵',desc:'整棟掛滿紅燈籠的一蘭總本店，24小時營業，宵夜最佳選擇。',recommend:'🍜 必點：天然豚骨拉麵',angle:'3deg'},
+      {name:'もつ鍋 一慶 春吉店',area:'春吉',rating:4.2,type:'牛腸鍋',desc:'以「炙烤牛腸鍋」聞名，牛腸經過炙烤後香氣更濃郁不膩口。',recommend:'🍲 必點：炙烤牛腸鍋、醬油高湯',angle:'-2deg'},
+      {name:'寶雲亭',area:'中洲',rating:4.1,type:'一口餃子',desc:'創業超過70年的中洲老字號，皮薄餡多的一口餃子配啤酒是絕配。',recommend:'🥟 必點：煎一口餃子、韭菜滑蛋',angle:'1deg'},
+      {name:'鮨 さかい',area:'西中洲',rating:4.8,type:'頂級江戶前壽司',desc:'福岡極難預約的米其林三星壽司，極致的職人手藝與空間。',recommend:'🍣 必點：主廚無菜單料理 (Omakase)',angle:'-3deg'},
+      {name:'串燒 博多松介 春吉店',area:'春吉',rating:4.2,type:'創意串燒',desc:'質感極佳的串燒居酒屋，招牌「松介特製雞肉丸」裡包著半熟蛋。',recommend:'🍢 必點：松介特製雞肉丸、紫蘇豬肉卷',angle:'2deg'},
+      {name:'須崎屋台 かじしか',area:'中洲/須崎',rating:4.3,type:'屋台居酒屋',desc:'少數從屋台轉型為店舖的人氣店，保留屋台人情味且料理精緻。',recommend:'🍢 必點：無花果培根卷、明太子玉子燒',angle:'-1deg'},
+      {name:'博多莊',area:'中洲',rating:4.0,type:'老牌拉麵',desc:'昭和21年創業，保留著古早味清爽豚骨湯頭的中洲老麵店。',recommend:'🍜 必點：傳統豚骨拉麵、炒飯',angle:'3deg'},
+      {name:'燒肉 蓮',area:'春吉',rating:4.3,type:'黑毛和牛燒肉',desc:'隱身春吉的低調和牛專賣店，以提供高性價比的A5黑毛和牛聞名。',recommend:'🥩 必點：A5黑毛和牛特選拼盤',angle:'-2deg'},
+      {name:'魚好亭',area:'祇園',rating:4.2,type:'海鮮居酒屋',desc:'在地人下班愛去的熱鬧居酒屋，海鮮極度新鮮且價格親民。',recommend:'🐟 必點：活花枝刺身、炸白蝦',angle:'1deg'},
+      {name:'琥珀咖啡',area:'中洲',rating:4.1,type:'復古喫茶店',desc:'昭和氛圍濃厚的深夜喫茶店，在繁華街中提供一杯手沖靜謐。',recommend:'☕ 必點：手沖黑咖啡、厚切吐司',angle:'-3deg'},
+      {name:'割烹 味美',area:'中洲',rating:4.4,type:'精緻和食',desc:'位在中洲川畔的高級割烹，提供細膩的季節懷石料理。',recommend:'🍱 必點：季節懷石套餐',angle:'2deg'}
     ],
     shops: [
       {name:'D&DEPARTMENT FUKUOKA',area:'祇園',rating:4.4,type:'生活選物・長效設計',desc:'日本知名推廣「長效設計」的選物店，販售九州在地傳統工藝、生活器皿與經典家具。',recommend:'🛍️ 推薦：波佐見燒器皿、九州地方特產',angle:'-1deg'},
@@ -425,7 +429,19 @@ const DAYS = [
       {name:'敘敘苑 博多KITTE店',area:'博多口 KITTE',rating:4.3,type:'頂級燒肉',desc:'日本全國知名的高級燒肉店，午間定食相對划算很多。',recommend:'🥩 必點：午間燒肉套餐、蔥花牛舌',angle:'-3deg'},
       {name:'うどん平',area:'博多車站旁',rating:4.3,type:'傳奇烏龍麵',desc:'總是大排長龍的名店，麵條現打現切，炸牛蒡與肉烏龍麵是絕品。',recommend:'🍜 必點：肉牛蒡天烏龍麵 (肉ごぼてん)',angle:'1deg'},
       {name:'極味や 博多店',area:'博多車站旁',rating:4.2,type:'鐵板漢堡排',desc:'讓客人自己用高溫鐵板炙烤的半熟漢堡排，排隊 1–2 小時是常態。',recommend:'🍔 必點：伊萬里牛鐵板半熟漢堡排',angle:'-2deg'},
-      {name:'博多 一双 博多駅東本店',area:'筑紫口',rating:4.2,type:'泡泡豚骨拉麵',desc:'被稱為「豚骨卡布奇諾」，豚骨氣味極重，愛好者極多。',recommend:'🍜 必點：特製拉麵 (全配料)、白飯',angle:'2deg'}
+      {name:'博多 一双 博多駅東本店',area:'筑紫口',rating:4.2,type:'泡泡豚骨拉麵',desc:'被稱為「豚骨卡布奇諾」，豚骨氣味極重，愛好者極多。',recommend:'🍜 必點：特製拉麵 (全配料)、白飯',angle:'2deg'},
+      {name:'大地のうどん 博多駅ちかてん',area:'博多車站地下',rating:4.3,type:'透明烏龍麵',desc:'麵條呈現半透明狀極具彈性，巨大的圓盤炸牛蒡是其標誌。',recommend:'🍜 必點：肉牛蒡天烏龍麵',angle:'-1deg'},
+      {name:'Shin-Shin 博多Deitos店',area:'博多車站內',rating:4.3,type:'博多純情拉麵',desc:'東方神起等藝人愛店，麵條極細，湯頭濃郁但沒有豬腥味。',recommend:'🍜 必點：煮玉子拉麵、炒飯',angle:'3deg'},
+      {name:'旭軒 博多駅前本店',area:'博多口',rating:4.2,type:'一口餃子',desc:'昭和年代延續至今，表皮煎得金黃酥脆的一口餃子排隊名店。',recommend:'🥟 必點：煎餃、水煮骨付雞',angle:'-2deg'},
+      {name:'REC COFFEE 博多丸井店',area:'博多口',rating:4.3,type:'冠軍咖啡',desc:'世界咖啡大師冠軍開設的精品咖啡店，6樓視野極佳。',recommend:'☕ 必點：手沖單品咖啡、拿鐵',angle:'1deg'},
+      {name:'むつか堂 博多店',area:'AMU Plaza',rating:4.2,type:'生吐司・三明治',desc:'福岡在地超紅的生吐司專賣店，吐司柔軟帶著淡淡甜味。',recommend:'🍞 必點：明太子吐司、水果三明治',angle:'-3deg'},
+      {name:'燒肉 冠軍 JR博多City',area:'博多車站10F',rating:4.2,type:'頂級A5和牛',desc:'來自惠比壽的知名燒肉店，提供一整頭買入的A5黑毛和牛。',recommend:'🥩 必點：特選部位拼盤',angle:'2deg'},
+      {name:'博多拉麵 だるま',area:'博多Deitos',rating:4.1,type:'老牌重口豚骨',desc:'擁有50年歷史的老店，背脂豐富、氣味濃烈，是重口味愛好者的天堂。',recommend:'🍜 必點：叉燒拉麵',angle:'-1deg'},
+      {name:'もつ鍋 楽天地 博多駅前店',area:'博多口',rating:4.1,type:'平價牛腸鍋',desc:'主打堆積如山的高麗菜與韭菜，價格親民，深受學生與上班族喜愛。',recommend:'🍲 必點：滿腹牛腸鍋套餐',angle:'3deg'},
+      {name:'海鮮丼 魚助',area:'博多車站地下',rating:4.0,type:'平價海鮮丼',desc:'由長濱鮮魚市場直營，可以用超便宜的價格吃到底部看不見飯的海鮮丼。',recommend:'🐟 必點：名物魚助丼',angle:'-2deg'},
+      {name:'珈琲舎のだ',area:'博多車站內',rating:4.2,type:'老派質感咖啡',desc:'1966年創業的福岡老字號，用虹吸壺沖煮咖啡，充滿昭和復古浪漫。',recommend:'☕ 必點：虹吸黑咖啡、維也納咖啡',angle:'1deg'},
+      {name:'努努雞 博多站店',area:'博多車站名店街',rating:4.3,type:'特色伴手禮',desc:'獨一無二的「冰涼炸雞」，甜辣口味，非常適合帶回飯店配啤酒。',recommend:'🍗 必點：努努雞 (冷藏食用)',angle:'-3deg'},
+      {name:'博多一口餃子 たけとら',area:'筑紫口',rating:4.1,type:'屋台風居酒屋',desc:'氣氛熱鬧的居酒屋，主打一口餃子與各式鐵板料理。',recommend:'🥟 必點：鐵板一口餃子、高麗菜炒豬肉',angle:'2deg'}
     ],
     shops: [
       {name:'中川政七商店 博多店',area:'AMU Plaza 8F',rating:4.4,type:'日本工藝・生活雜貨',desc:'擁有三百年歷史的老字號品牌，將日本各地的傳統工藝轉化為極具質感的現代生活用品。',recommend:'🛍️ 推薦：富士山抹布、在地特色工藝雜貨',angle:'-2deg'},
@@ -455,7 +471,19 @@ const DAYS = [
       {name:'肉肉うどん 川端店',area:'川端商店街',rating:4.2,type:'粗曠烏龍麵',desc:'以黑色湯頭、大塊燉肉和大量生薑為特色的粗曠風格烏龍麵。',recommend:'🍜 必點：肉烏龍麵 (生薑多加)',angle:'3deg'},
       {name:'博多あかちょこべ',area:'櫛田神社旁',rating:4.2,type:'水壺烏龍麵',desc:'將烏龍麵裝在「銅製水壺」裡端上桌的特色小店，主打胚芽麵條。',recommend:'🫖 必點：水壺烏龍麵 (ずぼらうどん)',angle:'-3deg'},
       {name:'中洲 鷹勝',area:'中洲',rating:4.2,type:'高級割烹・生魚片',desc:'提供頂級海鮮與壽司的料亭，活造（現殺生魚片）非常知名。',recommend:'🐟 必點：呼子花枝活造、豪華刺身盛合',angle:'1deg'},
-      {name:'元祖博多めんたい重',area:'中洲',rating:4.1,type:'明太子飯',desc:'將整條明太子鋪在飯上，淋上特製醬汁。福岡最具指標性的網美排隊名店。',recommend:'🌶️ 必點：飯麵套餐 (明太子飯 + 沾麵)',angle:'-2deg'}
+      {name:'元祖博多めんたい重',area:'中洲',rating:4.1,type:'明太子飯',desc:'將整條明太子鋪在飯上，淋上特製醬汁。福岡最具指標性的網美排隊名店。',recommend:'🌶️ 必點：飯麵套餐 (明太子飯 + 沾麵)',angle:'-2deg'},
+      {name:'かろのうろん',area:'櫛田神社旁',rating:4.3,type:'歷史烏龍麵',desc:'福岡最古老的烏龍麵店，麵條柔軟吸滿高湯。（注意：店內嚴禁拍照）',recommend:'🍜 必點：肉牛蒡天烏龍麵',angle:'2deg'},
+      {name:'巴西咖啡 Brasileiro',area:'店屋町',rating:4.3,type:'洋食喫茶',desc:'福岡現存最古老的喫茶店，充滿文豪氣息，限量炸肉餅是秒殺夢幻逸品。',recommend:'🥩 必點：橄欖球炸肉餅 (需預約)、手沖咖啡',angle:'-1deg'},
+      {name:'鯖魚 眞 (Makoto)',area:'川端',rating:4.4,type:'烤鯖魚定食',desc:'中午永遠在排隊的超低調名店，整家店午餐只賣一種「極品烤鯖魚定食」。',recommend:'🐟 必點：烤鯖魚定食',angle:'3deg'},
+      {name:'博多拉麵 暫',area:'川端商店街',rating:4.0,type:'在地豚骨',desc:'充滿商店街昭和風情的老麵店，豚骨湯頭溫和順口不油膩。',recommend:'🍜 必點：拉麵、一口餃子',angle:'-2deg'},
+      {name:'壽司 隆 (Taka)',area:'川端',rating:4.2,type:'質感壽司',desc:'位在川端商店街附近的高CP值壽司店，午間握壽司套餐非常划算。',recommend:'🍣 必點：午間特選握壽司',angle:'1deg'},
+      {name:'燒肉 龍王館 中洲店',area:'中洲',rating:4.2,type:'平價和牛',desc:'提供價格合理的黑毛和牛與極佳的服務，是當地年輕人聚餐愛店。',recommend:'🥩 必點：龍王館特選拼盤、蔥花牛舌',angle:'-3deg'},
+      {name:'石村萬盛堂 本店',area:'須崎町',rating:4.2,type:'傳統和菓子',desc:'白色情人節的發祥店，招牌「鶴乃子」是包著黃身餡的絕品棉花糖。',recommend:'🍡 必點：鶴乃子、現烤仙貝',angle:'2deg'},
+      {name:'茶舖 步之音',area:'川端商店街',rating:4.3,type:'日本茶專賣',desc:'八女茶專門店，除了可以購買優質茶葉，店內也能享用濃郁的抹茶冰淇淋。',recommend:'🍵 必點：特濃抹茶霜淇淋、八女玉露',angle:'-1deg'},
+      {name:'屋台 伸龍',area:'中洲川畔',rating:4.1,type:'中洲屋台',desc:'中洲知名的屋台之一，除了拉麵，這裡的明太子玉子燒與串烤也極受歡迎。',recommend:'🍢 必點：明太子玉子燒、豚骨拉麵',angle:'3deg'},
+      {name:'戰國燒鳥 家康',area:'川端',rating:4.0,type:'懷舊燒鳥',desc:'一進門就會聽到擊鼓聲的特色燒鳥連鎖店，充滿濃濃的昭和戰國風情。',recommend:'🍢 必點：豬五花串、高麗菜(免費續)',angle:'-2deg'},
+      {name:'居酒屋 海風季',area:'川端',rating:4.1,type:'海鮮居酒屋',desc:'提供呼子烏賊與長濱市場直送海鮮的氣派居酒屋，適合團體聚餐。',recommend:'🐟 必點：烏賊活造、生魚片盛合',angle:'1deg'},
+      {name:'咖啡 蘭館',area:'川端',rating:4.2,type:'復古咖啡',desc:'彷彿時光倒流的琥珀色空間，提供精緻的自家烘焙咖啡與歐風蛋糕。',recommend:'🍰 必點：特調手沖、起司蛋糕',angle:'-3deg'}
     ],
     shops: [
       {name:'ぶどうのたね 博多',area:'Hakata Riverain',rating:4.3,type:'質感選物・器皿服飾',desc:'本店位於福岡浮羽的知名選物店分店。嚴選日常好用的陶器、木作餐具以及天然材質服飾。',recommend:'🍽️ 推薦：日本作家手工陶器、質感亞麻服飾',angle:'1deg'},
@@ -485,7 +513,19 @@ const DAYS = [
       {name:'ひょうたん寿司',area:'天神',rating:4.3,type:'平價高級握壽司',desc:'永遠大排長龍的握壽司，食材極度厚實新鮮。',recommend:'🍣 必點：特選海鮮握壽司盛合',angle:'3deg'},
       {name:"Qu'il fait bon",area:'天神',rating:4.3,type:'水果派',desc:'全國知名的夢幻水果派專賣店，塔皮酥脆，水果極鮮甜。',recommend:'🥧 必點：季節限定甘王草莓派',angle:'-3deg'},
       {name:'かさの家',area:'太宰府參道',rating:4.2,type:'梅枝餅',desc:'太宰府參道上最具代表性、也最多人排隊的現烤梅枝餅。',recommend:'🍡 必點：現烤梅枝餅',angle:'1deg'},
-      {name:'一蘭 太宰府參道店',area:'太宰府參道',rating:4.2,type:'合格拉麵',desc:'提供全球唯一的「五角形合格拉麵碗」，寓意金榜題名。',recommend:'⭐ 必點：五角碗合格豚骨拉麵',angle:'-2deg'}
+      {name:'一蘭 太宰府參道店',area:'太宰府參道',rating:4.2,type:'合格拉麵',desc:'提供全球唯一的「五角形合格拉麵碗」，寓意金榜題名。',recommend:'⭐ 必點：五角碗合格豚骨拉麵',angle:'-2deg'},
+      {name:'Ivorish 福岡本店',area:'大名',rating:4.3,type:'法式吐司',desc:'引領甜點風潮的超人氣法式吐司專賣店，外酥內軟極具層次。',recommend:'🥞 必點：招牌綜合莓果法式吐司',angle:'1deg'},
+      {name:'珈琲美美 (Bimi)',area:'赤坂',rating:4.5,type:'傳奇咖啡',desc:'日本手沖咖啡界的神級名店，以法蘭絨濾布手沖出極度純淨的琥珀液體。',recommend:'☕ 必點：中深焙法蘭絨手沖咖啡',angle:'-2deg'},
+      {name:'麵劇場 玄瑛',area:'藥院',rating:4.3,type:'劇場型拉麵',desc:'店內設計成劇院階梯式座位，食客宛如觀眾般看著主廚烹煮豚骨拉麵。',recommend:'🍜 必點：玄瑛流拉麵、TKG生蛋拌飯',angle:'3deg'},
+      {name:'今泉 魚男 (FISH MAN)',area:'今泉',rating:4.1,type:'浮誇海鮮',desc:'以視覺效果極度浮誇、階梯狀盛裝的生魚片盛合聞名的年輕系居酒屋。',recommend:'🐟 必點：階梯生魚片拼盤、海鮮丼',angle:'-1deg'},
+      {name:'もつ鍋 越後屋',area:'今泉',rating:4.2,type:'白味噌牛腸鍋',desc:'以京都白味噌熬煮的高雅牛腸鍋，柚子胡椒是畫龍點睛的絕配。',recommend:'🍲 必點：京風白味噌牛腸鍋',angle:'2deg'},
+      {name:'燒肉 利花苑 大名本店',area:'大名',rating:4.3,type:'頂級燒肉',desc:'福岡老字號的高級燒肉店，提供一頭買的頂級伊萬里牛與黑毛和牛。',recommend:'🥩 必點：特選黑毛和牛排、石鍋拌飯',angle:'-3deg'},
+      {name:'壽司 やま中 本店',area:'渡邊通',rating:4.4,type:'極上壽司',desc:'福岡極具代表性的高級壽司名店，建築由名設計師打造，宛如美術館。',recommend:'🍣 必點：特上握壽司套餐',angle:'1deg'},
+      {name:'NO COFFEE',area:'平尾/藥院',rating:4.2,type:'潮流咖啡',desc:'「Life with good coffee」結合黑白極簡設計與街頭潮流文化的質感咖啡。',recommend:'☕ 必點：竹炭黑拿鐵、抹茶拿鐵',angle:'-2deg'},
+      {name:'stock (Pain d\'epices)',area:'天神(中洲交界)',rating:4.4,type:'排隊麵包',desc:'福岡超難買的排隊麵包店AMAM DACOTAN的姊妹店，明太子法國麵包絕頂。',recommend:'🥖 必點：明太子法國麵包、各式調理麵包',angle:'3deg'},
+      {name:'星期三的愛麗絲',area:'大名',rating:4.0,type:'概念甜點/雜貨',desc:'愛麗絲夢遊仙境主題概念店，要從小小的門彎腰進入，販售可愛零食與飾品。',recommend:'🍬 必點：主題造型餅乾與爆米花',angle:'-1deg'},
+      {name:'梅枝餅 寺田屋',area:'太宰府參道',rating:4.2,type:'梅枝餅',desc:'太宰府另一間極具人氣的梅枝餅老店，店內附有美麗的日式庭園可內用。',recommend:'🍡 必點：梅枝餅與抹茶套餐',angle:'2deg'},
+      {name:'揚子江 肉包',area:'太宰府',rating:4.1,type:'爆汁肉包',desc:'來自北九州的超巨大肉包，皮Q且內餡充滿鮮甜肉汁，逛街良伴。',recommend:'🥟 必點：招牌大肉包 (小心燙口汁液)',angle:'-3deg'}
     ],
     shops: [
       {name:'B・B・B POTTERS',area:'藥院',rating:4.5,type:'質感器皿・生活道具',desc:'福岡最具代表性的生活器皿選物店！一樓是實用的廚房與生活雜貨，二樓則是精緻的日本作家陶器與咖啡空間。',recommend:'🍽️ 推薦：野田琺瑯、日本陶藝家手工碗盤',angle:'-1deg'},
@@ -515,7 +555,19 @@ const DAYS = [
       {name:'肉肉うどん 東比恵店',area:'東比惠',rating:4.2,type:'粗曠烏龍麵',desc:'距離半道橋不遠，充滿生薑與深色湯頭的重口味烏龍麵。',recommend:'🍜 必點：加量生薑肉烏龍麵',angle:'-3deg'},
       {name:'伊都きんぐ 福岡空港店',area:'機場國內線',rating:4.2,type:'草莓銅鑼燒',desc:'以福岡「甘王草莓」製作的究極銅鑼燒，甜點控必買伴手禮。',recommend:'🍓 必點：甘王草莓銅鑼燒 (どらきんぐ生)',angle:'1deg'},
       {name:'博多一幸舎 福岡空港店',area:'機場（拉麵跑道）',rating:4.1,type:'豚骨拉麵',desc:'濃厚脂泡系豚骨拉麵，搭機前最後的重口味衝擊。',recommend:'🍜 必點：特製濃厚豚骨拉麵',angle:'-2deg'},
-      {name:'ラーメン海鳴 福岡空港店',area:'機場（拉麵跑道）',rating:4.1,type:'魚介豚骨拉麵',desc:'結合魚介與豚骨的特色拉麵，也有機場限定的明太子拌麵。',recommend:'🐟 必點：魚介豚骨拉麵',angle:'2deg'}
+      {name:'ラーメン海鳴 福岡空港店',area:'機場（拉麵跑道）',rating:4.1,type:'魚介豚骨拉麵',desc:'結合魚介與豚骨的特色拉麵，也有機場限定的明太子拌麵。',recommend:'🐟 必點：魚介豚骨拉麵',angle:'2deg'},
+      {name:'井手かつ丼 福岡空港店',area:'機場國內線',rating:4.2,type:'日式炸豬排丼',desc:'源自佐賀武雄的超人氣名店，用秘製高湯與半熟蛋液包裹厚實豬排。',recommend:'🍚 必點：招牌豬排丼',angle:'-1deg'},
+      {name:'因幡うどん 福岡空港店',area:'機場國內線',rating:4.1,type:'博多柔軟烏龍麵',desc:'創業超過70年，最能代表博多「麵條不帶嚼勁、柔軟吸湯」特性的老店。',recommend:'🍜 必點：肉牛蒡天烏龍麵',angle:'3deg'},
+      {name:'博多カレー研究所',area:'機場國內線',rating:4.0,type:'日式咖哩',desc:'以「飛魚高湯」作為基底熬製的濃厚日式咖哩，風味極具層次。',recommend:'🍛 必點：飛魚高湯炸豬排咖哩',angle:'-2deg'},
+      {name:'燒肉 太平樂',area:'東比惠',rating:4.1,type:'在地老牌燒肉',desc:'距離機場不遠的家庭式燒肉老店，以平實的價格提供優質肉品。',recommend:'🥩 必點：午間超值燒肉定食',angle:'1deg'},
+      {name:'FUK COFFEE',area:'機場國內線',rating:4.3,type:'機場概念咖啡',desc:'以機場代碼「FUK」為主題的質感咖啡品牌，也有販售航空風週邊。',recommend:'☕ 必點：印有飛機圖案的拿鐵、焦糖布丁',angle:'-3deg'},
+      {name:'L\'UNIQUE',area:'機場國內線',rating:4.2,type:'精緻洋菓子',desc:'只在福岡機場設點的頂級甜點櫃，外觀宛如寶石般精緻的法國傳統糕點。',recommend:'🍰 必點：機場限定綜合水果塔',angle:'2deg'},
+      {name:'拉麵 曼陀羅',area:'東比惠',rating:4.0,type:'隱藏版拉麵',desc:'深受東比惠當地居民喜愛的小拉麵館，提供溫暖扎實的豚骨湯底。',recommend:'🍜 必點：半熟蛋拉麵、餃子',angle:'-1deg'},
+      {name:'中華料理 八仙閣',area:'東比惠',rating:4.1,type:'中華定食',desc:'在福岡開設多間分店的老牌中華料理，份量大且出餐極快。',recommend:'🥡 必點：糖醋肉定食、強棒麵',angle:'3deg'},
+      {name:'博多拉麵 幸ちゃん',area:'機場（拉麵跑道）',rating:4.1,type:'新星豚骨',desc:'由「吉村家」直系修業的師傅開設，近年在福岡快速竄紅的濃厚豚骨。',recommend:'🍜 必點：味玉拉麵',angle:'-2deg'},
+      {name:'努努雞 國內線航廈店',area:'機場國內線',rating:4.3,type:'特色伴手禮',desc:'離開福岡前最後的購買機會！冰涼酥脆的炸雞，帶上飛機或回家吃都完美。',recommend:'🍗 必點：努努雞 (不可加熱)',angle:'1deg'},
+      {name:'稚加榮 機場伴手禮店',area:'機場免稅/國內線',rating:4.4,type:'明太子伴手禮',desc:'高級料亭稚加榮出品的管狀明太子，包裝精美，擠在白飯上是極致享受。',recommend:'🌶️ 必點：軟管明太子 (推薦原味與柚子)',angle:'-3deg'},
+      {name:'迴轉壽司 海天丸',area:'近半道橋',rating:4.0,type:'平價迴轉壽司',desc:'離 RICOLAND 不遠的家庭式迴轉壽司，提供長濱鮮魚市場直送的平價海鮮。',recommend:'🍣 必點：當日產地直送推薦品、平價午餐',angle:'2deg'}
     ],
     shops: [
       {name:'RICOLAND 福岡空港店',area:'半道橋',rating:4.4,type:'重機部品・騎士選物',desc:'你的重點行程！九州最大級別的機車用品專賣店，安全帽、防摔衣與各式改裝部品極度齊全。',recommend:'🏍️ 推薦：Arai / SHOEI 安全帽、專屬騎士部品',angle:'-1deg'},
@@ -556,7 +608,7 @@ function renderCards(placesArray, color, cardType = 'food') {
         <div>${p.recommend}</div>
       </div>
       <div style="margin-top:auto">
-        <a href="${buildMapUrl(p.name + ' ' + p.area + ' 福岡市 日本')}" target="_blank" class="btn-map">
+        <a href="${buildMapUrl(p.name + ' ' + p.area + ' 福岡 日本')}" target="_blank" class="btn-map">
           <i class="fas fa-location-dot"></i> 開啟地圖導航
         </a>
       </div>
@@ -598,7 +650,7 @@ DAYS.forEach(day => {
   if (foodCardsHTML) {
     foodSectionHTML = `
       <h3 class="section-title">
-        <i class="fas fa-utensils" style="font-size:0.9em;"></i> 周邊美食推薦
+        <i class="fas fa-utensils" style="font-size:0.9em;"></i> 周邊美食推薦 (${day.places.length}間)
       </h3>
       <div class="restaurant-grid">${foodCardsHTML}</div>
     `;
